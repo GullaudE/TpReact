@@ -1,25 +1,71 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Accueil from "./Component/Accueil";
+import Episode from "./Component/Episode";
+import Episode2 from "./Component/Episode2";
+import Episode3 from "./Component/Episode3";
+import Personnage from "./Component/Personnage";
+import IdPersonnage from "./Component/IdPersonnage";
+import Favoris from "./Component/Favoris";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {Container, Nav, Navbar} from "react-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App()  {
+
+
+
+    return (
+
+        <Router>
+            <div className="App">
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                    <Container>
+                        <Navbar.Brand href="#home">
+                            <a href="/">
+                                <img
+                                    src="/asset/image/RickMorty.png"
+                                    width="60"
+                                    height="60"
+                                    alt="Rick&Morty"
+                                />
+                            </a>
+                        </Navbar.Brand>
+                        <Navbar.Brand>Rick & Morty</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
+
+
+                            <Nav className="NavBar">
+                                <Nav.Link href="/Component/Episode">Episodes</Nav.Link>
+                                <Nav.Link href="/Component/Favoris">Favoris</Nav.Link>
+                            </Nav>
+
+                        </Navbar.Collapse>
+
+                    </Container>
+                </Navbar>
+
+
+
+
+                <Routes>
+                    <Route path="*" element={<Accueil/>} />
+                    <Route path="/Component/Episode" element={<Episode/>}/>
+                    <Route path="/Component/Episode2" element={<Episode2/>}/>
+                    <Route path="/Component/Episode3" element={<Episode3/>}/>
+                    <Route path="/Component/Personnage" element={<Personnage/> }/>
+                    <Route path="/Component/Favoris" element={<Favoris/>}/>
+
+
+                </Routes>
+
+
+
+            </div>
+        </Router>
+    );
 }
-
 export default App;
+
