@@ -3,8 +3,6 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Accueil from "./Component/Accueil";
 import Episode from "./Component/Episode";
-import Episode2 from "./Component/Episode2";
-import Episode3 from "./Component/Episode3";
 import Personnage from "./Component/Personnage";
 import Favoris from "./Component/Favoris";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -52,8 +50,6 @@ function App()  {
                 <Routes>
                     <Route path="*" element={<Accueil/>} />
                     <Route path="/Component/Episode" element={<Episode/>}/>
-                    <Route path="/Component/Episode2" element={<Episode2/>}/>
-                    <Route path="/Component/Episode3" element={<Episode3/>}/>
                     <Route path="/Component/Personnage" element={<Personnage/> }/>
                     <Route path="/Component/Favoris" element={<Favoris/>}/>
 
