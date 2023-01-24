@@ -38,14 +38,14 @@ class Episodes extends Component {
         return (
 
 
-                <div>
-                    {this.state.episodes.map(episode => (
-                        <Episode key={episode.id} episode={episode} />
+            <div>
+                {this.state.episodes.map(episode => (
+                    <Episode key={episode.id} episode={episode} />
 
-                    ))}
-                    <button className="button-episode" onClick={this.handlePreviousPage} disabled={this.state.currentPage === 1}>Previous Page</button>
-                    <button className="button-episode" onClick={this.handleNextPage} disabled={this.state.currentPage === 3}>Next Page</button>
-                </div>
+                ))}
+                <button className="button-episode" onClick={this.handlePreviousPage} disabled={this.state.currentPage === 1}>Previous Page</button>
+                <button className="button-episode" onClick={this.handleNextPage} disabled={this.state.currentPage === 3}>Next Page</button>
+            </div>
 
         )
     }
@@ -57,14 +57,14 @@ function Episode(props) {
 
         <div className="card-container">
 
-                <div className="card">
-                    <p key={episode.id}>
-                        <b>{episode.name}</b><br/>
-                        {episode.episode}{" "}
-                        {episode.air_date}<br/>
+            <div className="card">
+                <p key={episode.id}>
+                    <b>{episode.name}</b><br/>
+                    {episode.episode}{" "}
+                    {episode.air_date}<br/>
 
-                    </p>
-                </div>
+                </p>
+            </div>
         </div>
 
     )
