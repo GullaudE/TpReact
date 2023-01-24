@@ -37,15 +37,22 @@ class Episodes extends Component {
     render() {
         return (
 
+            <div className="card-container">
 
-            <div>
-                {this.state.episodes.map(episode => (
-                    <Episode key={episode.id} episode={episode} />
+                    {this.state.episodes.map(episode => (
+                        <Episode key={episode.id} episode={episode} />
 
-                ))}
-                <button className="button-episode" onClick={this.handlePreviousPage} disabled={this.state.currentPage === 1}>Previous Page</button>
-                <button className="button-episode" onClick={this.handleNextPage} disabled={this.state.currentPage === 3}>Next Page</button>
+                    ))}
+                <div className="div-button">
+                    <div className="button-episode">
+                        <button className="button-episode" onClick={this.handlePreviousPage} disabled={this.state.currentPage === 1}>Previous Page</button>
+                        <button className="button-episode" onClick={this.handleNextPage} disabled={this.state.currentPage === 3}>Next Page</button>
+                    </div>
+                </div>
+
             </div>
+
+
 
         )
     }
@@ -55,17 +62,16 @@ function Episode(props) {
     const { episode } = props
     return (
 
-        <div className="card-container">
+        <div className="card">
 
-            <div className="card">
                 <p key={episode.id}>
                     <b>{episode.name}</b><br/>
                     {episode.episode}{" "}
                     {episode.air_date}<br/>
 
                 </p>
-            </div>
         </div>
+
 
     )
 }
