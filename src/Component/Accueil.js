@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {Component,useState, useEffect} from "react";
-import Cookies from 'js-cookie';
 
 
 function getRandomNumber() {

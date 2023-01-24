@@ -6,7 +6,6 @@ import Episode from "./Component/Episode";
 import Episode2 from "./Component/Episode2";
 import Episode3 from "./Component/Episode3";
 import Personnage from "./Component/Personnage";
-import IdPersonnage from "./Component/IdPersonnage";
 import Favoris from "./Component/Favoris";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Container, Nav, Navbar} from "react-bootstrap";

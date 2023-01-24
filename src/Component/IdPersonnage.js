@@ -1,5 +1,3 @@
-
-
 function IdPersonnage(param) {
     const searchParams = new URLSearchParams(window.location.search);
 

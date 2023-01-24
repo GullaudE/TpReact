@@ -3,39 +3,38 @@ import React, {useEffect, useState} from "react";
 import IdPersonnage from "./IdPersonnage";
 
 function Personnage() {
-    let [items, setItems] = useState(null)
+    let [personnages, setpersonnages] = useState(null)
 
 
     useEffect(() => {
-        fetch("https://rickandmortyapi.com/api/character/"+IdPersonnage())
+        fetch("https://rickandmortyapi.com/api/character/" + IdPersonnage())
             .then(response => response.json())
 
-            .then(data => setItems(data))
+            .then(data => setpersonnages(data))
     }, [])
 
     var tab = new Array();
 
 
     tab.push(
-
         <div className="img-perso">
 
             <div className="div-img">
 
-            <a>
-                {items && <img src={items.image} alt="img character"/>}
-            </a>
+                <a>
+                    {personnages && <img src={personnages.image} alt="img character"/>}
+                </a>
             </div>
 
             <a>
-                {items && <h6>{items.name}</h6>}
+                {personnages && <h6>{personnages.name}</h6>}
             </a>
             <a>
-                <h6>Status :</h6>{items && <p> {items.status}</p>}
-                <h6>Sexe:</h6>{items && <p>{items.gender} </p>}
-                <h6> Type:</h6> {items && <p> {items.type}</p>}
-                <h6> Planète d'origine:</h6>{items && <p> {items.origin.name}</p>}
-                <h6> Apparition :</h6>{items && <p> {items.episode}</p>}
+                <h6>Status :</h6>{personnages && <p> {personnages.status}</p>}
+                <h6>Sexe:</h6>{personnages && <p>{personnages.gender} </p>}
+                <h6> Type:</h6> {personnages && <p> {personnages.type}</p>}
+                <h6> Planète d'origine:</h6>{personnages && <p> {personnages.origin.name}</p>}
+                <h6> Apparition :</h6>{personnages && <p> {personnages.episode}</p>}
             </a>
 
         </div>
@@ -49,7 +48,7 @@ function Personnage() {
 
         </div>
 
-);
+    );
 }
 
 export default Personnage;

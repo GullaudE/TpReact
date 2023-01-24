@@ -3,82 +3,70 @@ import React from "react";
 import {Component} from 'react';
 
 
-class Episode extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            items: []
-        };
-    }
+
+
+class Episodes extends Component {
+    state = { episodes: [], currentPage: 1 }
 
     componentDidMount() {
-        fetch("https://rickandmortyapi.com/api/episode/?page=1")
-
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result["results"]
-                    });
-                },
-
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-
+        this.fetchEpisodes()
     }
 
+    fetchEpisodes = () => {
+        fetch(`https://rickandmortyapi.com/api/episode/?page=${this.state.currentPage}`)
+            .then(res => res.json())
+            .then(data => this.setState({ episodes: data.results }))
+    }
+
+    handlePreviousPage = () => {
+        this.setState(prevState => ({
+            currentPage: prevState.currentPage - 1
+        }), () => {
+            this.fetchEpisodes()
+        })
+    }
+
+    handleNextPage = () => {
+        this.setState(prevState => ({
+            currentPage: prevState.currentPage + 1
+        }), () => {
+            this.fetchEpisodes()
+        })
+    }
 
     render() {
-        const { error, isLoaded, items } = this.state;
-        if (error) {
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-            return <div>Loading...</div>;
-        } else {
-            return (
-                <div className="card-container">
-
-                    <div className="div-button">
-                        <a href="/Component/Episode">
-                            <button className="button-episode" >1</button>
-                        </a>
-                        <span>
-                        <a href="/Component/Episode2">
-                            <button className="button-episode">2</button>
-                        </a>
-                        </span>
-                        <a href="/Component/Episode3">
-                            <button className="button-episode">3</button>
-                        </a>
-
-                    </div>
+        return (
 
 
-                    {items.map(item => (
-                            <div className="card">
-                                <p key={item.id}>
-                                    <b>{item.name}</b><br/>
-                                    {item.episode}{" "}
-                                    {item.air_date}<br/>
+                <div>
+                    {this.state.episodes.map(episode => (
+                        <Episode key={episode.id} episode={episode} />
 
-                                </p>
-
-
-
-                            </div>
-                        ))}
-
+                    ))}
+                    <button className="button-episode" onClick={this.handlePreviousPage} disabled={this.state.currentPage === 1}>Previous Page</button>
+                    <button className="button-episode" onClick={this.handleNextPage} disabled={this.state.currentPage === 3}>Next Page</button>
                 </div>
-            );
-        }
+
+        )
     }
 }
-export default Episode;
+
+function Episode(props) {
+    const { episode } = props
+    return (
+
+        <div className="card-container">
+
+                <div className="card">
+                    <p key={episode.id}>
+                        <b>{episode.name}</b><br/>
+                        {episode.episode}{" "}
+                        {episode.air_date}<br/>
+
+                    </p>
+                </div>
+        </div>
+
+    )
+}
+export default Episodes;
