@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, {Component,useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 
 
 function getRandomNumber() {
     return Math.floor(Math.random() * 826) + 1;
 }
 
-function Accueil() {
+export default function Accueil() {
     let [items, setItems] = useState(null)
 
 
@@ -55,6 +55,6 @@ function Accueil() {
         </div>
     );
 }
-export default Accueil;
+
 
 

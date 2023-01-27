@@ -1,4 +1,4 @@
-function IdPersonnage(param) {
+export default function IdPersonnage(param) {
     const searchParams = new URLSearchParams(window.location.search);
 
     const id = searchParams.get("id");
@@ -7,4 +7,3 @@ function IdPersonnage(param) {
 
 }
 
-export default IdPersonnage;

@@ -5,7 +5,8 @@ import {Component} from 'react';
 
 
 
-class Episodes extends Component {
+
+export default class Episodes extends Component {
     state = { episodes: [], currentPage: 1 }
 
     componentDidMount() {
@@ -58,7 +59,7 @@ class Episodes extends Component {
     }
 }
 
-function Episode(props) {
+ function Episode(props) {
     const { episode } = props
     return (
 
@@ -69,10 +70,12 @@ function Episode(props) {
                     {episode.episode}{" "}
                     {episode.air_date}<br/>
 
+
+
+
                 </p>
         </div>
 
 
     )
 }
-export default Episodes;
