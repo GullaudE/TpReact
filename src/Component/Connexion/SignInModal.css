@@ -1,0 +1,15 @@
+
+.conn-div {
+    display: flex;
+    flex-direction: column;
+
+    background-color: transparent;
+    height: 200px;
+    width: 300px;
+    border-radius: 5px;
+    padding-top: 150px;
+}
+.conn-inp {
+    border-radius: 5px;
+    width: 200px;
+}
