@@ -13,10 +13,10 @@ export default function Favoris() {
                 <h1>Il n'y a pas de favoris</h1>
             </div>
 
-            <div className="position-absolute">
+            <div className="div-button-episode">
 
                 <a href="/Component/Episode">
-                    <button className="button-episode" >Episodes</button>
+                    <button className="button-episode">Episodes</button>
                 </a>
             </div>
         </div>

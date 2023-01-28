@@ -26,7 +26,7 @@ export default function Personnage() {
                 </a>
             </div>
 
-            <div className="div-txt-pp">
+            <div className="div-texte">
 
                 <a>
                     {personnages && <h1>{personnages.name}</h1>}
