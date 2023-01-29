@@ -22,7 +22,8 @@ export default function Personnage() {
 
 
                 <a>
-                    {personnages && <img className="img-perso" src={personnages.image} alt="img character"/>}
+                    {personnages && <img  className="img-perso"
+                        src={personnages.image} alt="img character"/>}
                 </a>
 
 

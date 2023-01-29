@@ -23,11 +23,12 @@ export default function Accueil() {
     for (let i = 0; i < 5; i++) {
         tab.push(
 
-            <div>
 
 
 
-            <div className="card">
+
+            <div className="card-container border border-dark rounded mt-1">
+
                 <div className="div-img">
                     <a href={items && "/Component/Personnage?id="+items[i].id}>
                         {items && <img className= "img" src={items[i].image} alt="img character"/>}
@@ -43,7 +44,7 @@ export default function Accueil() {
 
 
             </div>
-        </div>
+
         )
     }
     return (

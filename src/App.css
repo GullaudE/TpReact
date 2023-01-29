@@ -37,7 +37,7 @@
 }
 
 .div-img{
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .button{
@@ -92,7 +92,20 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 40px;
   margin-top: 80px;
-  z-index: 0;
+
+
+}
+.card-episode {
+  text-align: center;
+  padding:10px;
+  width: 150px;
+  border-radius: 5px;
+  padding: 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 40px;
+  margin-top: 80px;
+  z-index: -1;
+
 
 }
 
@@ -115,7 +128,10 @@
   border-radius: 5px;
   width: 250px;
   margin: 50px;
-  position: fixed;
+  position: center;
+
+
+
 
 }
 

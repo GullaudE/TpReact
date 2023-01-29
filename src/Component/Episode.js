@@ -63,16 +63,12 @@ export default class Episodes extends Component {
     const { episode } = props
     return (
 
-        <div className="card">
+        <div class="card-episode">
 
                 <p key={episode.id}>
                     <b>{episode.name}</b><br/>
                     {episode.episode}{" "}
                     {episode.air_date}<br/>
-
-
-
-
                 </p>
         </div>
 
