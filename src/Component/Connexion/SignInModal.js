@@ -10,6 +10,9 @@ export default function SignInModal(){
 
     const navigate = useNavigate()
 
+
+
+
     const [validation, setValidation] = useState("")
 
     const inputs = useRef([])
@@ -22,6 +25,10 @@ export default function SignInModal(){
 
     const handleForm = async (e) => {
         e.preventDefault()
+
+        const email = inputs.current[0].value;
+
+
 
         try {
 

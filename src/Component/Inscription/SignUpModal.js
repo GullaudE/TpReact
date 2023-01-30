@@ -10,6 +10,9 @@ export default function SignUpModal(){
 
     const navigate = useNavigate()
 
+    const emailRegex = /^[a-z A-Z 0-9 ]+@[a-z A-Z 0-9]+\.[A-Z a-z]+$/;
+
+
     const [validation, setValidation] = useState("")
 
     const inputs = useRef([])
@@ -23,8 +26,18 @@ export default function SignUpModal(){
     const handleForm = async (e) => {
         e.preventDefault()
 
-        if ((inputs.current[1].value.length || inputs.current[2].value.length) < 6) {
-            setValidation("6 caractères minimum")
+
+        const email = inputs.current[0].value;
+
+        if (!emailRegex.test(email)) {
+            setValidation("Email non valide");
+            return;
+        }
+
+
+
+        if ((inputs.current[1].value.length || inputs.current[2].value.length) < 8) {
+            setValidation("8 caractères minimum")
             return
         } else if (inputs.current[1].value !== inputs.current[2].value) {
             setValidation("Mot de passe différent")
