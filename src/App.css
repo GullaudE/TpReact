@@ -122,6 +122,12 @@
   border-radius: 5px;
   width: auto;
 }
+.div-img-pers {
+  height: 100px;
+  border-radius: 5px;
+  width: auto;
+  padding-top: 100px ;
+}
 
 .img-perso {
   height: 250px;

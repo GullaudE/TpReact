@@ -17,22 +17,22 @@ export default function Personnage() {
 
 
     tab.push(
-        <div className="div-perso">
+        <div className="div-perso ">
 
 
 
-                <a>
+                <div className="div-img-pers">
                     {personnages && <img  className="img-perso"
                         src={personnages.image} alt="img character"/>}
-                </a>
+                </div>
 
 
-            <div className="div-texte">
+        {/*    <div className="div-texte">*/}
 
 
 
                 <a>
-                    <div>
+                    <div className="text-center">
                         {personnages && <h1>{personnages.name}</h1>}
 
                         <h6>Status :</h6>{personnages && <p> {personnages.status}</p>}
@@ -43,7 +43,7 @@ export default function Personnage() {
                     </div>
                 </a>
 
-            </div>
+            {/*</div>*/}
 
         </div>
     )
