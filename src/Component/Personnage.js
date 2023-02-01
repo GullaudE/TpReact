@@ -27,7 +27,6 @@ export default function Personnage() {
                 </div>
 
 
-        {/*    <div className="div-texte">*/}
 
 
 
@@ -43,7 +42,7 @@ export default function Personnage() {
                     </div>
                 </a>
 
-            {/*</div>*/}
+
 
         </div>
     )

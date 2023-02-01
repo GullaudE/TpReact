@@ -8,7 +8,7 @@ import {auth} from "./Firebase"
 
 export default function NavBar(){
 
-    const {toggleModals} = useContext(UserContext)
+    const {toggleModals, currentUser} = useContext(UserContext)
 
     const navigate = useNavigate()
 
@@ -48,26 +48,34 @@ export default function NavBar(){
                             <Nav.Link href="/Component/Episode">
                                 Episodes
                             </Nav.Link>
+
+                        {currentUser && (
                             <Nav.Link href="/Component/Favoris">
                                 Favoris
                             </Nav.Link>
+                        )}
                             <div>
+                                {!currentUser && (
                                 <button
 
                                     onClick={() => toggleModals("signUp")}
                                     className="button-log">
                                     Inscription
                                 </button>
+                                )}
+                                {!currentUser && (
                                 <button
                                     onClick={() => toggleModals("signIn")}
                                     className="button-log ms-2">
                                     Connexion
                                 </button>
+                                )}
+                                {currentUser && (
                                 <button
                                     onClick={logOut}
                                     className="button-log ms-2">
                                     Déconnexion
-                                </button>
+                                </button>)}
                             </div>
 
 
@@ -81,9 +89,3 @@ export default function NavBar(){
         </div>
             )
 }
-
-
-
-
-
-

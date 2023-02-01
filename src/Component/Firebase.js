@@ -4,14 +4,15 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth} from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 
+
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket:process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+        apiKey: "AIzaSyBDRMizaKib0nvXshdmIrdRbNry_A-x6_g",
+        authDomain: "rick-morty-7f62c.firebaseapp.com",
+        projectId: "rick-morty-7f62c",
+        storageBucket: "rick-morty-7f62c.appspot.com",
+        messagingSenderId: "350140253033",
+        appId: "1:350140253033:web:bd862393fdabe7c473f3f8",
+        measurementId: "G-5C8VYP1HEH"
 };
 
 

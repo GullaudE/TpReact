@@ -1,8 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+/*
 import firebase from 'firebase/app';
+*/
 import 'firebase/storage';
 
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
+import {UserContext} from "./Context/UserContext";
 
 
 function getRandomNumber() {
@@ -16,6 +19,8 @@ export default function Accueil() {
     const addToFavorites = (item) => {
         setFavorites([...favorites, item]);
     }
+    const { currentUser} = useContext(UserContext)
+
 
 
 
@@ -29,7 +34,7 @@ export default function Accueil() {
     }, [])
 
     var tab = new Array();
-    firebase.storage().ref().child('favorites/' + items.id).set(items);
+
 
 
 
@@ -52,10 +57,11 @@ export default function Accueil() {
                     {items && <h6>{items[i].name}</h6>}
                     {items && <p>{items[i].url}</p>}
                 </a>
+                 {currentUser && (
                 <button className="btn bg-danger position-absolute mt-5 " onClick={() => addToFavorites(items[i])}>
                     Ajouter aux favoris
                 </button>
-
+                 )}
 
 
 
