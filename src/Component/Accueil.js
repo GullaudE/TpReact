@@ -53,10 +53,15 @@ export default function Accueil() {
                     </a>
                 </div>
 
-                <a>
-                    {items && <h6>{items[i].name}</h6>}
-                    {items && <p>{items[i].url}</p>}
-                </a>
+
+                    <div className="p-4" >
+                        <a>
+                        {items && <h6>{items[i].name}</h6>}
+                        {items && <p>{items[i].status}</p>}
+                         </a>
+                    </div>
+
+
                  {currentUser && (
                 <button className="btn bg-danger position-absolute mt-5 " onClick={() => addToFavorites(items[i])}>
                     Ajouter aux favoris
