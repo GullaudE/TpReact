@@ -19,16 +19,10 @@ export default function Personnage() {
     tab.push(
         <div className="div-perso ">
 
-
-
                 <div className="div-img-pers">
                     {personnages && <img  className="img-perso"
                         src={personnages.image} alt="img character"/>}
                 </div>
-
-
-
-
 
                 <a>
                     <div className="text-center">
@@ -41,8 +35,6 @@ export default function Personnage() {
                         <h6> Apparition :</h6>{personnages && <p> {personnages.episode}</p>}
                     </div>
                 </a>
-
-
 
         </div>
     )

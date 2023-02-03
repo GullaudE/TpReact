@@ -5,11 +5,9 @@ import {signOut} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
 import {auth} from "./Firebase"
 
-
 export default function NavBar(){
 
     const {toggleModals, currentUser} = useContext(UserContext)
-
     const navigate = useNavigate()
 
     const logOut = async () => {
@@ -22,14 +20,13 @@ export default function NavBar(){
 
         }
 
-
     }
 
     return (
         <div className="App">
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">
+                        <Navbar.Brand href="#home">
                         <a href="/">
                             <img
                                 src="/asset/image/RickMorty.png"
@@ -42,7 +39,6 @@ export default function NavBar(){
                     <Navbar.Brand>Rick & Morty</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-
 
                         <Nav className="NavBar">
                             <Nav.Link href="/Component/Episode">
@@ -78,7 +74,6 @@ export default function NavBar(){
                                 </button>)}
                             </div>
 
-
                         </Nav>
 
                     </Navbar.Collapse>
@@ -87,5 +82,6 @@ export default function NavBar(){
             </Navbar>
 
         </div>
-            )
+    )
+
 }

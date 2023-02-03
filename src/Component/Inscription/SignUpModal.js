@@ -1,6 +1,6 @@
 import React, {useContext, useRef, useState}from "react";
 import {UserContext} from "../Context/UserContext";
-import {useNavigate, useNavigation} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 export default function SignUpModal(){
@@ -10,7 +10,7 @@ export default function SignUpModal(){
 
     const navigate = useNavigate()
 
-    const emailRegex = /^[a-z A-Z 0-9 ]+@[a-z A-Z 0-9]+\.[A-Z a-z]+$/;
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 
     const [validation, setValidation] = useState("")
@@ -34,8 +34,6 @@ export default function SignUpModal(){
             return;
         }
 
-
-
         if ((inputs.current[1].value.length || inputs.current[2].value.length) < 8) {
             setValidation("8 caractères minimum")
             return
@@ -51,9 +49,9 @@ export default function SignUpModal(){
                 inputs.current[1].value
             )
 
-            formRef.current.reset();
+            formRef.current.reset()
             setValidation("")
-           navigate("/Private/PrivateFav/Favoris")
+
         }catch (err){
            if (err.code === "auth/invalid-email"){
                setValidation("Format email incorrect")
@@ -111,7 +109,6 @@ export default function SignUpModal(){
                                                     id="signUpEmail"
                                                 />
 
-
                                             </div>
                                             <div className="mb-3">
 
@@ -145,13 +142,9 @@ export default function SignUpModal(){
 
                                             </div>
 
-
-
                                             <button className="btn btn-primary">Enregistrer</button>
 
                                         </form>
-
-
 
                                     </div>
                                 </div>

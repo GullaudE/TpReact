@@ -1,12 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-/*
-import firebase from 'firebase/app';
-*/
-import 'firebase/storage';
-
 import React, {useState, useEffect, useContext} from "react";
 import {UserContext} from "./Context/UserContext";
-
+import {db} from "./Firebase";
 
 function getRandomNumber() {
     return Math.floor(Math.random() * 826) + 1;
@@ -16,15 +11,22 @@ export default function Accueil() {
     let [items, setItems] = useState(null)
     let [favorites, setFavorites] = useState([]);
 
-    const addToFavorites = (item) => {
-        setFavorites([...favorites, item]);
-    }
     const { currentUser} = useContext(UserContext)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const handleAddToFavorites = (characterId) => {
+        db.collection("favorites").add({
+            characterId: characterId,
+            userId: currentUser.uid
+        })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+    };
 
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character/" + getRandomNumber() + "," + getRandomNumber() + "," + getRandomNumber() + "," + getRandomNumber() + "," + getRandomNumber())
@@ -35,15 +37,8 @@ export default function Accueil() {
 
     var tab = new Array();
 
-
-
-
     for (let i = 0; i < 5; i++) {
         tab.push(
-
-
-
-
 
             <div className="card-container text-center w-auto shadow border  rounded mt-1">
 
@@ -53,7 +48,6 @@ export default function Accueil() {
                     </a>
                 </div>
 
-
                     <div className="p-4" >
                         <a>
                         {items && <h6>{items[i].name}</h6>}
@@ -61,14 +55,11 @@ export default function Accueil() {
                          </a>
                     </div>
 
-
-                 {currentUser && (
-                <button className="btn bg-danger position-absolute mt-5 " onClick={() => addToFavorites(items[i])}>
-                    Ajouter aux favoris
-                </button>
-                 )}
-
-
+                {currentUser && (
+                    <button className="button-episode  mt-auto" onClick={() => handleAddToFavorites(items[i].id)}>
+                        Ajouter aux favoris
+                    </button>
+                )}
 
             </div>
 
@@ -83,6 +74,3 @@ export default function Accueil() {
         </div>
     );
 }
-
-
-

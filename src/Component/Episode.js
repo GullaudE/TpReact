@@ -2,10 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import {Component} from 'react';
 
-
-
-
-
 export default class Episodes extends Component {
     state = { episodes: [], currentPage: 1 }
 
@@ -52,8 +48,6 @@ export default class Episodes extends Component {
                 </div>
 
             </div>
-
-
 
         )
     }

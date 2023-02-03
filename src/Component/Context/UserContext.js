@@ -1,21 +1,13 @@
 import {createContext, useState, useEffect} from "react";
 
-import {
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    onAuthStateChanged
-} from "firebase/auth"
-
+import {signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
 import  {auth} from "../Firebase"
 
 export const UserContext = createContext()
-
 export function UserContextProvider(props){
 
     const signUp = (email, pwd) => createUserWithEmailAndPassword(auth, email, pwd)
     const signIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd)
-
-
     const [currentUser, setCurrentUser] = useState()
     const [loadingData, setLoadingDate] = useState(true)
 
@@ -28,11 +20,8 @@ export function UserContextProvider(props){
         })
         return unsubscribe
 
-
     },[])
 
-
-    // modal
     const [modalState, setModalState] = useState({
         signUpModal: false,
         signInModal: false
