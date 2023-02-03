@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useState, useEffect, useContext} from "react";
-import {UserContext} from "./Context/UserContext";
-import {db} from "./Firebase";
+import {UserContext, UpdateFavoris} from "./Context/UserContext";
+
 
 function getRandomNumber() {
     return Math.floor(Math.random() * 826) + 1;
@@ -9,24 +9,10 @@ function getRandomNumber() {
 
 export default function Accueil() {
     let [items, setItems] = useState(null)
-    let [favorites, setFavorites] = useState([]);
 
     const { currentUser} = useContext(UserContext)
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const handleAddToFavorites = (characterId) => {
-        db.collection("favorites").add({
-            characterId: characterId,
-            userId: currentUser.uid
-        })
-            .then(function(docRef) {
-                console.log("Document written with ID: ", docRef.id);
-            })
-            .catch(function(error) {
-                console.error("Error adding document: ", error);
-            });
-    };
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ /*   UpdateFavoris()*/
 
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character/" + getRandomNumber() + "," + getRandomNumber() + "," + getRandomNumber() + "," + getRandomNumber() + "," + getRandomNumber())
@@ -56,7 +42,7 @@ export default function Accueil() {
                     </div>
 
                 {currentUser && (
-                    <button className="button-episode  mt-auto" onClick={() => handleAddToFavorites(items[i].id)}>
+                    <button className="button-episode  mt-auto">
                         Ajouter aux favoris
                     </button>
                 )}
